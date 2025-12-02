@@ -113,6 +113,11 @@ export async function getFilesToExportFromServerAsync(
     });
   }
 
+  // Skip HTML pre-rendering in SSR mode since HTML will be rendered at runtime
+  if (exportServer) {
+    return files;
+  }
+
   await Promise.all(
     getHtmlFiles({ manifest, includeGroupVariations: !exportServer }).map(
       async ({ route, filePath, pathname }) => {
@@ -303,6 +308,26 @@ export async function exportFromServerAsync(
     for (const [route, contents] of apiRoutes) {
       files.set(route, contents);
     }
+
+    // Export SSR render module for runtime HTML rendering
+    await devServer.exportExpoRouterRenderModuleAsync({
+      files,
+      includeSourceMaps: true,
+      platform: 'web',
+    });
+
+    // Export asset manifest for SSR hydration
+    const jsAssets = resources.artifacts
+      .filter((asset) => asset.type === 'js')
+      .map((asset) => (baseUrl ? `${baseUrl}/${asset.filename}` : `/${asset.filename}`));
+    const cssAssets = resources.artifacts
+      .filter((asset) => asset.type === 'css')
+      .map((asset) => (baseUrl ? `${baseUrl}/${asset.filename}` : `/${asset.filename}`));
+
+    files.set('_expo/assets.json', {
+      contents: JSON.stringify({ js: jsAssets, css: cssAssets }),
+      targetDomain: 'server',
+    });
   } else {
     warnPossibleInvalidExportType(appDir);
   }
