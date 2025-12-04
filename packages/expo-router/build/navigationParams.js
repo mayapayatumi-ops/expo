@@ -6,8 +6,6 @@ exports.getInternalExpoRouterParams = getInternalExpoRouterParams;
 exports.hasParam = hasParam;
 exports.removeParams = removeParams;
 exports.removeInternalExpoRouterParams = removeInternalExpoRouterParams;
-exports.areParamsEqualDisregardingInternalExpoRouterParams = areParamsEqualDisregardingInternalExpoRouterParams;
-const deepEqual_1 = require("./utils/deepEqual");
 exports.INTERNAL_EXPO_ROUTER_NO_ANIMATION_PARAM_NAME = '__internal_expo_router_no_animation';
 exports.INTERNAL_EXPO_ROUTER_IS_PREVIEW_NAVIGATION_PARAM_NAME = '__internal__expo_router_is_preview_navigation';
 const internalExpoRouterParamNames = [
@@ -85,11 +83,6 @@ function removeInternalExpoRouterParams(params) {
     if (!params) {
         return undefined;
     }
-    return removeParams(params, [...internalExpoRouterParamNames, 'params']);
-}
-function areParamsEqualDisregardingInternalExpoRouterParams(paramsA, paramsB) {
-    return (0, deepEqual_1.deepEqual)(
-    // using ?? {}, because from our perspective undefined === {}, as both mean no params
-    removeInternalExpoRouterParams(paramsA ?? {}), removeInternalExpoRouterParams(paramsB ?? {}));
+    return removeParams(params, [...internalExpoRouterParamNames]);
 }
 //# sourceMappingURL=navigationParams.js.map
