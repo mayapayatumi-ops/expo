@@ -77,7 +77,7 @@ export async function getExpoPackagesAsync(expoRepoPath: string): Promise<Packag
   }
 
   const paths = await Array.fromAsync(
-    fs.promises.glob(['*/package.json', '@expo/*/package.json'], {
+    fs.promises.glob('**/package.json', {
       cwd: path.join(expoRepoPath, 'packages'),
       exclude: [
         '**/example/**',
@@ -87,6 +87,7 @@ export async function getExpoPackagesAsync(expoRepoPath: string): Promise<Packag
         '**/__fixtures__/**',
         '**/e2e/**',
         '**/build/**',
+        '@expo/cli/local-template/**',
       ],
     })
   );
