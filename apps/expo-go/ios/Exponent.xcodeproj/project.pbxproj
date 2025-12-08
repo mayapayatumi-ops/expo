@@ -415,7 +415,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				Exponent-Prefix.pch,
+				"Exponent-Prefix.pch",
 			);
 			target = 78CEE2BF1ACD07D70095B124 /* Expo Go */;
 		};
