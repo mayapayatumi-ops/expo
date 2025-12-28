@@ -32,6 +32,9 @@
 - [iOS] add withAppleZoom prop to Link.Trigger ([#41371](https://github.com/expo/expo/pull/41371) by [@Ubax](https://github.com/Ubax))
 - [iOS] prevent dismissal for zoom transition, when gestureEnabled is false ([#41356](https://github.com/expo/expo/pull/41356) by [@Ubax](https://github.com/Ubax))
 - [iOS] add Link.AppleZoomTarget ([#41352](https://github.com/expo/expo/pull/41352) by [@Ubax](https://github.com/Ubax))
+- add header items components API ([#40842](https://github.com/expo/expo/pull/40842) by [@Ubax](https://github.com/Ubax))
+- allow for standalone usage of Stack.Header and Stack.Header.Left/Right ([#41649](https://github.com/expo/expo/pull/41649) by [@Ubax](https://github.com/Ubax))
+- Unify the API between Toolbar, Header items and Link preview ([#41679](https://github.com/expo/expo/pull/41679) by [@Ubax](https://github.com/Ubax))
 
 ### 🐛 Bug fixes
 
@@ -48,6 +51,8 @@
 - [ios] fix toolbar menu updates and ordering of items ([#41522](https://github.com/expo/expo/pull/41522) by [@Ubax](https://github.com/Ubax))
 - [ios] prevent native crash when Link.AppleZoom with direct child Text is rendered inside Text ([#41518](https://github.com/expo/expo/pull/41518) by [@Ubax](https://github.com/Ubax))
 - [ios] fix zoom transition with custom params in href ([#41508](https://github.com/expo/expo/pull/41508) by [@Ubax](https://github.com/Ubax))
+- [ios] fix zoom transition issues with external links and preview ([#41507](https://github.com/expo/expo/pull/41507) by [@Ubax](https://github.com/Ubax))
+- fix PlatformColor not available when using Color on web ([#41801](https://github.com/expo/expo/pull/41801) by [@Ubax](https://github.com/Ubax))
 
 ### 💡 Others
 
@@ -75,6 +80,12 @@
 - extract children utils to common file ([#41238](https://github.com/expo/expo/pull/41238) by [@Ubax](https://github.com/Ubax))
 - [iOS] replace LinkPreviewNativeNavigationObjC with direct swift calls ([#41331](https://github.com/expo/expo/pull/41331) by [@Ubax](https://github.com/Ubax))
 - add utility function parseUrlUsingCustomBase ([#41506](https://github.com/expo/expo/pull/41506) by [@Ubax](https://github.com/Ubax))
+- Update `/_expo/touch` usage in onboarding ([#41541](https://github.com/expo/expo/pull/41541) by [@kitten](https://github.com/kitten))
+- Bump `react-server-dom-webpack` ([#41574](https://github.com/expo/expo/pull/41574) by [@kitten](https://github.com/kitten)) ([#41589](https://github.com/expo/expo/pull/41589) by [@kitten](https://github.com/kitten))
+- [ios] add internal animateAspectRatioChange prop ([#41511](https://github.com/expo/expo/pull/41511) by [@Ubax](https://github.com/Ubax))
+- Add unstable_navigationEvents to expose global navigation events ([#41706](https://github.com/expo/expo/pull/41706) by [@Ubax](https://github.com/Ubax))
+- [ios] replace print with jsLog in native components ([#41757](https://github.com/expo/expo/pull/41757) by [@Ubax](https://github.com/Ubax))
+- [ios] add NativeActionProp to reduce repetition in LinkPreviewNativeActionView ([#41763](https://github.com/expo/expo/pull/41763) by [@Ubax](https://github.com/Ubax))
 
 ## 6.0.17 - 2025-12-05
 
